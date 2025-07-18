@@ -1,0 +1,533 @@
+/* 通用样式和变量 */
+:root {
+    --primary-color: #3498db; /* 主要品牌色，可根据喜好更改 */
+    --secondary-color: #2c3e50; /* 次要颜色，用于文本或背景 */
+    --accent-color: #e74c3c; /* 强调色，用于按钮、链接高亮 */
+    --light-bg: #f8f9fa; /* 浅色背景 */
+    --dark-text: #333; /* 深色文本 */
+    --light-text: #fff; /* 浅色文本 */
+    --border-color: #ddd; /* 边框颜色 */
+    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+    --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.15); /* 中等阴影 */
+}
+
+/* 基本重置和字体 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* 主体文字字体 */
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--light-bg);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* 容器和通用布局 */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow: hidden; /* 防止浮动元素溢出 */
+}
+
+.section-padding {
+    padding: 80px 0; /* 各部分上下内边距 */
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.bg-light {
+    background-color: #f0f2f5; /* 用于区分相邻部分的浅灰色背景 */
+}
+
+/* 按钮样式 */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-light);
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+/* 导航栏样式 */
+.header {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    padding: 20px 0;
+    position: sticky; /* 粘性定位 */
+    top: 0;
+    z-index: 1000; /* 确保在其他内容之上 */
+    box-shadow: var(--shadow-medium);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.logo a {
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+.nav ul {
+    display: flex;
+}
+
+.nav ul li {
+    margin-left: 30px;
+}
+
+.nav ul li a {
+    color: var(--light-text);
+    font-weight: 400;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav ul li a:hover::after,
+.nav ul li a.active::after { /* 可选：为当前活动链接添加样式 */
+    width: 100%;
+}
+
+/* 英雄区/关于我 */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/hero-bg.jpg') no-repeat center center/cover; /* 添加一个背景图，记得在img文件夹里放一张hero-bg.jpg */
+    color: var(--light-text);
+    text-align: center;
+    padding: 100px 0;
+    min-height: 80vh; /* 最小高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4); /* 半透明背景 */
+    border-radius: 10px;
+    box-shadow: var(--shadow-medium);
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* 圆形图片 */
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-medium);
+}
+
+.hero h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero .tagline {
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.hero .description {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.social-links {
+    margin-bottom: 30px;
+}
+
+.social-links a {
+    color: var(--light-text);
+    font-size: 1.8em;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* 教育和工作经历部分 */
+.education-timeline,
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* 项目之间的间距 */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline-item,
+.experience-item {
+    background-color: var(--light-text);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover,
+.experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.timeline-item h3,
+.experience-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.timeline-item .degree,
+.experience-item .role {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.timeline-item .duration,
+.experience-item .duration {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.timeline-item .details,
+.experience-item ul {
+    font-size: 1.05em;
+    color: var(--dark-text);
+    line-height: 1.7;
+}
+
+.experience-item ul {
+    padding-left: 20px;
+}
+
+.experience-item ul li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.experience-item ul li::before {
+    content: '\f00c'; /* Font Awesome check icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--primary-color);
+    position: absolute;
+    left: -20px;
+    top: 5px; /* Adjust as needed for vertical alignment */
+    font-size: 0.8em;
+}
+
+/* 技能部分 */
+.skills-category {
+    margin-bottom: 40px;
+}
+
+.skills-category h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-tag {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow-light);
+}
+
+.skill-tag:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* 项目部分 */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 响应式网格 */
+    gap: 30px;
+    justify-content: center;
+}
+
+.project-item {
+    background-color: var(--light-text);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-medium);
+}
+
+.project-item img {
+    width: 100%;
+    height: 220px; /* 固定图片高度 */
+    object-fit: cover; /* 裁剪图片以适应 */
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--secondary-color);
+    font-size: 1.6em;
+    margin: 20px 20px 10px;
+}
+
+.project-item .project-description {
+    padding: 0 20px 15px;
+    color: #555;
+    flex-grow: 1; /* 让描述占据剩余空间 */
+}
+
+.project-item .project-links {
+    padding: 0 20px 20px;
+    display: flex;
+    gap: 15px;
+}
+
+/* 联系方式部分 */
+.contact-text {
+    text-align: center;
+    font-size: 1.15em;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-info p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--dark-text);
+}
+
+.contact-info p i {
+    color: var(--primary-color);
+    margin-right: 10px;
+    font-size: 1.3em;
+}
+
+.contact-info p a {
+    font-weight: 600;
+}
+
+.social-links-bottom {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.social-links-bottom a {
+    color: var(--secondary-color);
+    font-size: 2em;
+    margin: 0 18px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links-bottom a:hover {
+    color: var(--primary-color);
+    transform: translateY(-4px);
+}
+
+/* 页脚样式 */
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式设计 (RWD) */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero h2 {
+        font-size: 2.8em;
+    }
+
+    .hero .tagline {
+        font-size: 1.2em;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .timeline-item,
+    .experience-item {
+        padding: 20px;
+    }
+
+    .timeline-item h3,
+    .experience-item h3 {
+        font-size: 1.5em;
+    }
+
+    .skill-tag {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* 在小屏幕上单列显示 */
+    }
+
+    .project-item h3 {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h2 {
+        font-size: 2.2em;
+    }
+    .hero .tagline {
+        font-size: 1em;
+    }
+    .social-links a {
+        font-size: 1.5em;
+        margin: 0 10px;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .section-title {
+        font-size: 1.8em;
+        margin-bottom: 40px;
+    }
+    .skills-category h3 {
+        font-size: 1.5em;
+    }
+    .contact-info p {
+        font-size: 1em;
+    }
+}
