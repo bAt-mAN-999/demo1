@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户信息输入</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>请输入您的信息</h2>
+        <form id="infoForm">
+            <div class="form-group">
+                <label for="name">1. 名称:</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error-message" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="age">2. 年龄:</label>
+                <input type="number" id="age" name="age" min="10" max="100" required>
+                <span class="error-message" id="ageError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>3. 性别:</label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="男" required>
+                    <label for="male">男</label>
+                    <input type="radio" id="female" name="gender" value="女">
+                    <label for="female">女</label>
+                    <input type="radio" id="other" name="gender" value="其他">
+                    <label for="other">其他</label>
+                </div>
+                <span class="error-message" id="genderError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="address">4. 地址:</label>
+                <textarea id="address" name="address" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="city">5. 城市:</label>
+                <select id="city" name="city">
+                    <option value="">请选择</option>
+                    <option value="北京">北京</option>
+                    <option value="上海">上海</option>
+                    <option value="广州">广州</option>
+                    <option value="深圳">深圳</option>
+                    <option value="成都">成都</option>
+                    <option value="杭州">杭州</option>
+                    <option value="其他">其他</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="postcode">6. 邮政编码:</label>
+                <input type="text" id="postcode" name="postcode" maxlength="6" pattern="\d{6}">
+                <span class="error-message" id="postcodeError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>7. 爱好:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="movie" name="hobby" value="看电影">
+                    <label for="movie">看电影</label>
+                    <input type="checkbox" id="singing" name="hobby" value="唱歌">
+                    <label for="singing">唱歌</label>
+                    <input type="checkbox" id="music" name="hobby" value="听音乐">
+                    <label for="music">听音乐</label>
+                    <input type="checkbox" id="reading" name="hobby" value="阅读">
+                    <label for="reading">阅读</label>
+                    <input type="checkbox" id="outdoor" name="hobby" value="户外运动">
+                    <label for="outdoor">户外运动</label>
+                    <input type="checkbox" id="indoor" name="hobby" value="室内运动">
+                    <label for="indoor">室内运动</label>
+                </div>
+            </div>
+
+            <button type="submit">提交</button>
+        </form>
+
+        <div id="output" class="output-container" style="display:none;">
+            <h3>您输入的信息:</h3>
+            <p><strong>名称:</strong> <span id="outputName"></span></p>
+            <p><strong>年龄:</strong> <span id="outputAge"></span></p>
+            <p><strong>性别:</strong> <span id="outputGender"></span></p>
+            <p><strong>地址:</strong> <span id="outputAddress"></span></p>
+            <p><strong>城市:</strong> <span id="outputCity"></span></p>
+            <p><strong>邮政编码:</strong> <span id="outputPostcode"></span></p>
+            <p><strong>爱好:</strong> <span id="outputHobby"></span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
